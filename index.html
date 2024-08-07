@@ -18,7 +18,7 @@
 
 <div>
 
-    <div id="header" class="d-flex flex-row shadow p-2 justify-content-between h-10 w-100">
+    <div id="header" class="d-flex flex-row shadow p-2 justify-content-between h-10 w-100 position-fixed z-3" >
 
         <div class="d-flex align-items-center flex-row gap-1">
             <div class="min-vh-50">
@@ -63,15 +63,15 @@
                     </div>
                     <div class="d-flex justify-content-around mt-5">
                         <div class="odometerContainer">
-                            <div id="experienceOdometer" class="odometer">15</div>
+                            <div id="experienceOdometer" class="odometer" data-val="15">15</div>
                             <div class="odometerDiscription">years</div>
                         </div>
                         <div class="odometerContainer">
-                            <div id="projetcsOdometer" class="odometer">200</div>
+                            <div id="projetcsOdometer" class="odometer" data-val="200">200</div>
                             <div class="odometerDiscription">projects</div>
                         </div>
                         <div class="odometerContainer">
-                            <div id="employeesOdometer" class="odometer">25</div>
+                            <div id="employeesOdometer" class="odometer" data-val="25">25</div>
                             <div class="odometerDiscription">employes</div>
                         </div>
 
@@ -82,15 +82,20 @@
 
         <div id="landingPageBanner" class="d-flex overflow-hidden mb-5">
             <div class="col-8 overflow-hidden" id="landingBannerImageContainer">
-                <img class="image-float" id="landingBannerImage" src="./images/roofing-banner-image.jpeg" />
-            </div>
-            <div class="col-4 d-flex flex-column justify-content-center align-items-center text-center"
-                id="landingPageBannerInfo">
-                <div class="py-2" id="landingPageBannerHeader">
-                    Get a Quota now!
-                    </br>
-                    Roofing Services in Ottawa
+
+                <div class="py-5 d-flex flex-column align-items-center" id="landingPageBannerHeader">
+                   <div>
+                       Get a Quota now!
+                   </div>
+                   <div>
+                       Roofing Services in Ottawa
+                   </div>
                 </div>
+
+            </div>
+            <div class="col-4 d-flex flex-column justify-content-center align-items-center text-center py-3"
+                id="landingPageBannerInfo">
+               
                 <div id="landingBannerContactList">
                     <div class="bannerContacts">
                         Quota
@@ -174,7 +179,7 @@
                 Testimonials
             </div>
             <div class="d-flex col gap-2 my-3 testimonialCardList">
-                <div class="testimonialCard col-6 p-3 shadow">
+                <div class="testimonialCard hidden col-6 p-3 shadow">
                     <div class="testimonialCardInfo">
                         "I recently hired Slatt Roofing to replace the roof of my home, and I couldn't be happier with
                         the results. From the initial consultation to the completion of the project, their team was
@@ -196,7 +201,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="testimonialCard col-6 p-3 shadow">
+                <div class="testimonialCard hidden col-6 p-3 shadow">
                     <div class="testimonialCardInfo">
                         "I had a great experience working with Slatt Roofing for a complete roof replacement. The team
                         was punctual, knowledgeable, and incredibly attentive to detail. They took the time to explain
@@ -220,7 +225,7 @@
                 </div>
             </div>
             <div class="d-flex col gap-2">
-                <div class="testimonialCard p-3 col-6 shadow testimonialCardList">
+                <div class="testimonialCard hidden p-3 col-6 shadow testimonialCardList">
                     <div class="testimonialCardInfo">
                         my commercial property. Their team demonstrated exceptional professionalism, expertise, and
                         reliability throughout the entire process. They worked efficiently, minimizing any disruption to
@@ -242,7 +247,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="testimonialCard p-3 col-6 shadow">
+                <div class="testimonialCard hidden p-3 col-6 shadow">
                     <div class="testimonialCardInfo">
                         impressed with their service. From the moment I contacted them, their team was responsive and
                         quick to schedule an inspection. They identified the problem promptly and provided a
@@ -314,6 +319,25 @@
                         provide you with peace of mind knowing that your roofing needs are in capable hands.
                     </div>
                 </div>
+            </div>
+
+        </div>
+
+        <div id="footer" class="row bg-black py-5">
+            <div id="footerAddressList" class="col">
+                <div id="infoHeader">Address Links</div>
+            </div>
+            <div id="footerLinks" class="col">
+                <div id="infoHeader">Links</div>
+
+            </div>
+            <div id="footerLocation" class="col"> 
+                <div id="infoHeader">Location</div>
+
+            </div>
+            <div id="footerInfo" class="col">
+                <div id="infoHeader">Slatt Roofing</div>
+
             </div>
 
         </div>
@@ -395,6 +419,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+        <script defer src="./main.js"></script>
     </body>
 
 </html>

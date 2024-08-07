@@ -4,6 +4,13 @@
     box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+    display: none;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+}
+
 * {
     margin: 0;
 }
@@ -75,7 +82,7 @@ h6 {
     --infoTextColor: #495057;
     --plainTextColor: #ffffff;
     --impTextColor: #e36414;
-    --mainheaderSize:3.055rem;
+    --mainheaderSize: 3.055rem;
     --headerSize1: 2.986rem;
     --headerSize2: 2.488rem;
     --headerSize3: 2.074rem;
@@ -86,6 +93,10 @@ h6 {
     --smallText: 0.943rem;
     --smallerText: 0.833rem;
     --smallestText: 0.694rem;
+}
+
+#header {
+    background-color: var(--plainTextColor);
 }
 
 #header img {
@@ -163,25 +174,38 @@ h6 {
     color: var(--plainTextColor);
 }
 
-#landingPageBannerHeader {
-    font-family: PTserif;
-    font-size: var(--headerSize5);
-}
+
 
 #landingPageBanner {
     max-height: 70vh;
 }
 
+#landingBannerImageContainer {
+    background: url("./images/roofing-shengals.jpg") fixed no-repeat center/100%;
+}
+
+#landingPageBannerHeader {
+    z-index: 999;
+    font-family: PTserif;
+    font-size: var(--headerSize1);
+    color: var(--plainTextColor);
+    text-decoration: underline;
+    text-decoration-color: var(--impTextColor);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 10px;
+    font-weight: 600;
+}
+
 #landingBannerImageContainer img {
-    transform-origin: 65% 75%;
-    transition: transform 400s, filter 15s;
-    filter: grayscale(40%);
+    /* transform-origin: 65% 75%; */
+    /* transition: transform 400s, filter 15s; */
+    /* filter: grayscale(40%); */
 }
 
 /* The Transformation */
-#landingBannerImageContainer:hover img {
+/* #landingBannerImageContainer:hover img {
     transform: scale(5);
-}
+} */
 
 #landingBannerImage {
     background-repeat: no-repeat;
@@ -249,27 +273,26 @@ h6 {
     z-index: 0;
 }
 
- #jobsInfoBackgroundImage {
+#jobsInfoBackgroundImage {
     width: 100%;
-    transform: translate(0%,-15%);
     background-attachment: fixed;
     filter: grayscale(80%);
- }
+}
 
-#jobsInfoDescription{
+#jobsInfoDescription {
     position: absolute;
     top: 0;
     left: 40%;
-    transform:translate(-33%,0);
+    transform: translate(-33%, 0);
     margin-top: 20vh;
-}  
+}
 
 #jobsInfoDescriptionHeader {
     font-size: var(--mainheaderSize);
     font-family: "PT Serif", serif;
     color: var(--plainTextColor);
     text-decoration: underline;
-    text-decoration-color:var(--impTextColor) ;
+    text-decoration-color: var(--impTextColor);
     text-decoration-thickness: 2px;
     text-underline-offset: 10px;
     font-weight: 600;
@@ -283,10 +306,28 @@ h6 {
 .odometerDiscription {
     font-size: var(--headerSize2);
 }
+
 .odometer {
     font-size: var(--mainheaderSize);
     text-decoration: underline;
-    text-decoration-color:var(--impTextColor) ;
+    text-decoration-color: var(--impTextColor);
     text-decoration-thickness: 2px;
     text-underline-offset: 10px;
+}
+
+.hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transition: all 2s;
+}
+
+.show {
+    filter: blur(0px);
+    opacity: 1;
+}
+
+#infoHeader {
+    text-align: center;
+    color: var(--plainTextColor);
+    font-size: var(--headerSize6);
 }

@@ -1,59 +1,36 @@
-const yearsExperience = 20;
-const numberOfProjects = 200;
-const numberOfEmployees = 25;
+let odometers = document.getElementsByClassName('odometer')
+let interval = 3000
 
-const createOdometer = (el, value) => {
-    const odometer = new Odometer({
-      el: el,
-      value: 0,
-    });
-  
-    let hasRun = false;
-  
-    const options = {
-      threshold: [0, 0.9],
-    };
-  
-    const callback = (entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          if (!hasRun) {
-            odometer.update(value);
-            hasRun = true;
-          }
-        }
-      });
-    };
-  
-    const observer = new IntersectionObserver(callback, options);
-    observer.observe(el);
-  };
+console.log(odometers)
 
-let yearsOfExperienceOdometerValue = document.getElementById("experienceOdometer");
-let numberOfProjectsOdometerValue = document.getElementById("projetcsOdometer");
-let numberOfEmployeesOdometerValue = document.getElementById("employeesOdometer");
-
-createOdometer(yearsOfExperienceOdometerValue,2900)
-createOdometer(numberOfProjectsOdometerValue,2100)
-createOdometer(numberOfEmployeesOdometerValue,1100)
+Array.from(odometers).forEach((element) => {
 
 
-// function setCount(element,countValue) {
+  let startValue = 0
+  let endValue = parseInt(element.getAttribute("data-val"));
+  let duration = Math.floor(interval / endValue)
+  console.log("--->", duration)
+  let counter = setInterval(function () {
+    startValue += 1;
+    element.textContent = startValue;
+    console.log("--->", startValue)
+    if (startValue == endValue) {
+      clearInterval(counter)
+    }
+  }, duration)
+});
 
-//     element.innerHTML = countValue
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    console.log("-->", entry)
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show')
+    } else {
+      entry.target.classList.remove('show')
+    }
+  })
+})
 
-// }
+const testimonalCards = document.getElementsByClassName('testimonialCard')
 
-// async function counterForOdometer(element, maxCount){
-// let initialCount = 0
-//     for(i=1;i<= maxCount;i++)
-//     {
-//      initialCount+=1
-//      setTimeout(setCount(element, initialCount),100000)
-//   }
-// }
-
-// console.log(typeof yearsOfExperienceOdometerValue.innerHTML)
-// console.log(numberOfEmployeesOdometerValue.innerHTML)
-// console.log(numberOfProjectsOdometerValue.innerHTML)
-
+Array.from(testimonalCards).forEach((element)=>{observer.observe(element)})
